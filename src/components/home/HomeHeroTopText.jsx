@@ -2,7 +2,7 @@ import Video from "./Video";
 
 const HomeHeroTopText = () => {
   return (
-    <div className="p-3">
+    <div>
       <h1 className="w-full text-[9.5vw] uppercase leading-[0.87] text-center py-0 px-[10vw] grow ">
         <div className="pt-2">
           <span>The spark for</span>
