@@ -5,7 +5,7 @@ import HomeHeroBottomText from "../components/home/HomeHeroBottomText";
 
 const Home = () => {
   return (
-    <>
+    <div className="bg-black text-white">
       <div className="h-screen w-screen fixed">
         <Video />
       </div>
@@ -13,7 +13,7 @@ const Home = () => {
         <HomeHeroTopText />
         <HomeHeroBottomText />
       </div>
-    </>
+    </div>
   );
 };
 
