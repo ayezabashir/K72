@@ -1,5 +1,19 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: lausanne-light;
+  src: url("/fonts/Lausanne-300.woff2");
+}
+
+@font-face {
+  font-family: lausanne-regular;
+  src: url("/fonts/Lausanne-500.woff2");
+}
+
 body {
   @apply bg-black text-white;
+}
+
+h1{
+  @apply font-[lausanne-light]
 }
