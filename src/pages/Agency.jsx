@@ -3,9 +3,12 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { useRef } from "react";
 
+gsap.registerPlugin(ScrollTrigger);
+
 const Agency = () => {
+  const containerRef = useRef(null);
   const imageDivRef = useRef(null);
-  const imageRef = useRef(null);
+  const imagesRef = useRef([]);
 
   const imageArray = [
     "https://k72.ca/images/teamMembers/Carl_480x640.jpg?w=480&h=640&fit=crop&s=f0a84706bc91a6f505e8ad35f520f0b7",
@@ -18,43 +21,59 @@ const Agency = () => {
     "https://k72.ca/images/teamMembers/joel_480X640_3.jpg?w=480&h=640&fit=crop&s=1cadbf143b3aa916b1b414464acbb4d6",
   ];
 
-  gsap.registerPlugin(ScrollTrigger);
-  useGSAP(() => {
-    gsap.to(imageDivRef.current, {
-      scrollTrigger: {
-        trigger: imageDivRef.current,
-        start: "top 20%",
-        end: "top -180%",
+  useGSAP(
+    () => {
+      const totalImages = imageArray.length;
+      ScrollTrigger.create({
+        trigger: containerRef.current,
+        start: "top top",
+        end: "bottom bottom",
+        pin: imageDivRef.current,
+        pinSpacing: false, 
         scrub: true,
-        pin: true,
-        onUpdate: function () {
-          console.log("hurray");
+        onUpdate: (self) => {
+          const index = Math.round(self.progress * (totalImages - 1));
+          imagesRef.current.forEach((img, i) => {
+            if (img) {
+              const isActive = i === index;
+              img.style.opacity = isActive ? "1" : "0";
+              img.style.zIndex = isActive ? "10" : "1";
+            }
+          });
         },
-      },
-    });
-  });
+      });
+    },
+    { scope: containerRef },
+  );
+
   return (
     <div className="bg-white text-black">
-      <div className="section1">
+      <div ref={containerRef} className="section1 relative min-h-screen">
         <div
           ref={imageDivRef}
-          className="absolute h-70 w-50 rounded-3xl overflow-hidden top-25 left-[30vw]"
+          className="image-container absolute h-80 w-60 rounded-3xl overflow-hidden top-30 left-[30vw] pointer-events-none bg-black"
         >
-          <img
-            ref={imageRef}
-            className="w-full h-full object-cover"
-            src="https://k72.ca/images/teamMembers/Carl_480x640.jpg?w=480&h=640&fit=crop&s=f0a84706bc91a6f505e8ad35f520f0b7"
-            alt="Carl"
-          />
+          {imageArray.map((src, i) => (
+            <img
+              key={i}
+              ref={(el) => (imagesRef.current[i] = el)}
+              src={src}
+              alt={`Team ${i}`}
+              className="absolute inset-0 w-full h-full object-cover"
+              style={{
+                opacity: i === 0 ? 1 : 0,
+                zIndex: i === 0 ? 10 : 1,
+                transition: "opacity 0.1s linear",
+              }}
+            />
+          ))}
         </div>
-        <div className="relative">
-          <div className="pt-[55vh]">
-            <h2 className="text-[20vw] font-[lausanne-regular] text-center uppercase leading-[18vw]">
-              SEVEN7Y <br /> TWO
-            </h2>
-          </div>
+        <div className="relative pt-100 pb-20">
+          <h2 className="text-[20vw] font-bold text-center uppercase leading-[18vw]">
+            SEVEN7Y <br /> TWO
+          </h2>
           <div className="pl-[40.2%] mt-20">
-            <p className="text-6xl indent-50 font-[lausanne-light]">
+            <p className="text-6xl font-light leading-tight">
               We’re inquisitive and open-minded, and we make sure creativity
               crowds out ego from every corner. A brand is a living thing, with
               values, a personality and a story. If we ignore that, we can
@@ -65,6 +84,7 @@ const Agency = () => {
           </div>
         </div>
       </div>
+
       <div className="section2 h-screen"></div>
     </div>
   );
