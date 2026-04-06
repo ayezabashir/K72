@@ -75,7 +75,7 @@ const Agency = () => {
             SEVEN7Y <br /> TWO
           </h2>
           <div className="pl-[40.2%] mt-20">
-            <p className="relative text-6xl font-light leading-tight">
+            <p className=" relative text-6xl indent-50 font-[lausanne-light]">
               We’re inquisitive and open-minded, and we make sure creativity
               crowds out ego from every corner. A brand is a living thing, with
               values, a personality and a story. If we ignore that, we can
