@@ -17,3 +17,20 @@ body {
 h1 {
   @apply font-[lausanne-light]
 }
+
+.nav-move {
+  animation-name: marqueeAnimation;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes marqueeAnimation {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}

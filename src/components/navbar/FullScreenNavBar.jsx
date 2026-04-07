@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
+import NavItem from "./NavItem";
+import { navLinks } from "./data";
 
 const FullScreenNavBar = ({ toggleFullScreenNav }) => {
   return (
-    <div className="relative bg-black text-white h-screen w-screen z-10">
+    <div className="fullscreenNav fixed top-0 left-0 bg-black text-white h-screen w-screen z-99 overflow-y-auto">
       <div className="p-4 flex justify-between items-center border-b border-gray-400">
         <Link to="/">
           <svg
@@ -18,6 +20,7 @@ const FullScreenNavBar = ({ toggleFullScreenNav }) => {
             ></path>
           </svg>
         </Link>
+
         <div>
           <button
             type="button"
@@ -34,103 +37,17 @@ const FullScreenNavBar = ({ toggleFullScreenNav }) => {
           </button>
         </div>
       </div>
-      <div>
-        <h1>WORK</h1>
-        <div>
-          <h2>SEE EVERYTHING</h2>
-          <img
-            src="https://k72.ca/images/caseStudies/iA_BRAND/Thumbnail.png?w=640&h=290&s=755b635c06d126151d64017fa1042a7c"
-            alt=""
+
+      <ul id="allLinks">
+        {navLinks.map((link, index) => (
+          <NavItem
+            key={index}
+            title={link.title}
+            hoverText={link.hoverText}
+            images={link.images}
           />
-          <h2>SEE EVERYTHING</h2>
-          <img
-            src="https://k72.ca/images/caseStudies/PJC/Thumbnails/PJC_SiteK72_Thumbnail_640x290.jpg?w=640&h=290&s=ac50a70feaaa2601b3aacad544c6045b"
-            alt=""
-          />
-        </div>
-        <div>
-          <h2>SEE EVERYTHING</h2>
-          <img
-            src="https://k72.ca/images/caseStudies/iA_BRAND/Thumbnail.png?w=640&h=290&s=755b635c06d126151d64017fa1042a7c"
-            alt=""
-          />
-          <h2>SEE EVERYTHING</h2>
-          <img
-            src="https://k72.ca/images/caseStudies/PJC/Thumbnails/PJC_SiteK72_Thumbnail_640x290.jpg?w=640&h=290&s=ac50a70feaaa2601b3aacad544c6045b"
-            alt=""
-          />
-        </div>
-      </div>
-      <div>
-        <h1>AGENCY</h1>
-        <div>
-          <h2>KNOW US</h2>
-          <img
-            src="https://k72.ca/images/teamMembers/blank_copie_2.jpg?w=640&h=290&s=b6f8d41383b2ee7821dcaec8b68295ec"
-            alt=""
-          />
-          <h2>KNOW US</h2>
-          <img
-            src="https://k72.ca/images/teamMembers/blank_copie_2.jpg?w=640&h=290&s=b6f8d41383b2ee7821dcaec8b68295ec"
-            alt=""
-          />
-        </div>
-        <div>
-          <h2>KNOW US</h2>
-          <img
-            src="https://k72.ca/images/teamMembers/blank_copie_2.jpg?w=640&h=290&s=b6f8d41383b2ee7821dcaec8b68295ec"
-            alt=""
-          />
-          <h2>KNOW US</h2>
-          <img
-            src="https://k72.ca/images/teamMembers/blank_copie_2.jpg?w=640&h=290&s=b6f8d41383b2ee7821dcaec8b68295ec"
-            alt=""
-          />
-        </div>
-      </div>
-      <div>
-        <h1>CONTACT</h1>
-        <div>
-          <h2>SEND US A FAX</h2>
-          <img src="images/heart_icon.png" alt="" />
-          <h2>SEND US A FAX</h2>
-          <img src="images/heart_icon.png" alt="" />
-        </div>
-        <div>
-          <h2>SEND US A FAX</h2>
-          <img src="images/heart_icon.png" alt="" />
-          <h2>SEND US A FAX</h2>
-          <img src="images/heart_icon.png" alt="" />
-        </div>
-      </div>
-      <div>
-        <h1>BLOG</h1>
-        <div>
-          <h2>READ ARTICLES</h2>
-          <img
-            src="https://k72.ca/images/blog/blogImg/K72_article_ChatGPT_blogue.jpg?w=640&h=290&s=cec2aa341c22369e36e602c558c49e2a"
-            alt=""
-          />
-          <h2>READ ARTICLES</h2>
-          <img
-            src="https://k72.ca/uploads/blog/blogImg/ier.com-16107673482102220.gif"
-            alt=""
-          />
-        </div>
-        <div>
-          <h2>READ ARTICLES</h2>
-          <img
-            src="https://k72.ca/images/blog/blogImg/K72_article_ChatGPT_blogue.jpg?w=640&h=290&s=cec2aa341c22369e36e602c558c49e2a"
-            alt=""
-          />
-          <h2>READ ARTICLES</h2>
-          <img
-            src="https://k72.ca/uploads/blog/blogImg/ier.com-16107673482102220.gif"
-            alt=""
-          />
-        </div>
-      </div>
-      <div></div>
+        ))}
+      </ul>
     </div>
   );
 };
