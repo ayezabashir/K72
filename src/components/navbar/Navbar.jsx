@@ -1,9 +1,11 @@
+import { useRef } from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
+  const navGreenRef = useRef(null);
   return (
-    <div className="flex fixed top-0 z-1 w-full items-center justify-between h-16">
-      <div className="p-4">
+    <div className="flex fixed top-0 z-1 w-full items-center justify-between h-14">
+      <div className="pl-4 pt-4">
         <Link to="/">
           <svg
             fill="#fff"
@@ -19,10 +21,24 @@ const Navbar = () => {
           </svg>
         </Link>
       </div>
-      <div className="bg-black w-50 h-full">
-        <div className="h-full flex flex-col justify-center items-end pr-4 gap-2">
-          <div className="h-0.5 w-10 bg-white"></div>
-          <div className="h-0.5 w-8 bg-white"></div>
+      <div
+        onMouseEnter={() => {
+          navGreenRef.current.style.height = "100%";
+        }}
+        onMouseLeave={() => {
+          navGreenRef.current.style.height = "0%";
+        }}
+        className="bg-black w-50 h-full cursor-pointer"
+      >
+        <div
+          ref={navGreenRef}
+          className="bg-[#d3fd50] transition-all absolute top-0 h-0 w-full"
+        ></div>
+        <div className="relative h-full">
+          <div className="h-full flex flex-col justify-center items-end pr-4 gap-2">
+            <div className="h-0.5 w-15 bg-white"></div>
+            <div className="h-0.5 w-8 bg-white"></div>
+          </div>
         </div>
       </div>
     </div>
