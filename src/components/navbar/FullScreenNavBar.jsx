@@ -1,14 +1,41 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 import { Link } from "react-router-dom";
 import NavItem from "./NavItem";
 import { navLinks } from "./data";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { useContext, useRef } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { NavbarContext } from "../../context/NavContext";
 
 const FullScreenNavBar = () => {
   const containerRef = useRef(null);
   const { navOpen, setNavOpen } = useContext(NavbarContext);
+  const [time, setTime] = useState("");
+  console.log(time);
+
+  useEffect(() => {
+    let timerId;
+
+    const getMontrealTime = () => {
+      return new Date().toLocaleTimeString("en-CA", {
+        timeZone: "America/Montreal",
+        timeStyle: "medium",
+        hour12: true,
+      });
+    };
+
+    if (navOpen) {
+      setTime(getMontrealTime());
+      timerId = setInterval(() => {
+        setTime(getMontrealTime());
+      }, 1000);
+    }
+
+    return () => {
+      clearInterval(timerId);
+      console.log("Clock stopped.");
+    };
+  }, [navOpen]);
 
   useGSAP(
     () => {
@@ -53,7 +80,7 @@ const FullScreenNavBar = () => {
   return (
     <div
       ref={containerRef}
-      className="fullscreenNav hidden fixed top-0 left-0 w-full h-screen bg-transparent z-99 overflow-x-hidden"
+      className="fullscreenNav hidden fixed top-0 left-0 w-full min-h-screen bg-transparent z-99 overflow-x-hidden"
     >
       <div className="absolute top-0 left-0 w-full h-full flex z-0 pointer-events-none">
         <div className="stairing bg-black w-1/5 h-0"></div>
@@ -62,7 +89,7 @@ const FullScreenNavBar = () => {
         <div className="stairing bg-black w-1/5 h-0"></div>
         <div className="stairing bg-black w-1/5 h-0"></div>
       </div>
-      <div className="relative z-10 h-full flex flex-col">
+      <div className="relative z-10 h-full flex flex-col justify-between">
         <div className="p-4 flex justify-between items-center border-b border-gray-600">
           <Link to="/" onClick={() => setNavOpen(false)}>
             <svg width="103" height="44" viewBox="0 0 103 44">
@@ -87,7 +114,10 @@ const FullScreenNavBar = () => {
           </button>
         </div>
 
-        <ul id="allLinks" className="flex flex-col justify-center text-white">
+        <ul
+          id="allLinks"
+          className="flex-1 flex flex-col justify-center text-white"
+        >
           {navLinks.map((link, index) => (
             <NavItem
               key={index}
@@ -97,6 +127,43 @@ const FullScreenNavBar = () => {
             />
           ))}
         </ul>
+
+        <div className="p-4 flex justify-between items-center border-b border-gray-600 text-white">
+          <div className="flex items-center gap-2">
+            <img className="w-9" src="images/globe_icon.png" alt="globe icon" />
+            <p className="font-[lausanne-regular] text-sm">
+              MONTREAL_<span>{time}</span>
+            </p>
+          </div>
+          <ul className="flex flex-1 items-center justify-center gap-5">
+            <li className="font-[lausanne-regular] text-xs uppercase">
+              privacy policy
+            </li>
+            <li className="font-[lausanne-regular] text-xs uppercase">
+              privacy notice
+            </li>
+            <li className="font-[lausanne-regular] text-xs uppercase">
+              ethics report
+            </li>
+            <li className="font-[lausanne-regular] text-xs uppercase">
+              consent choice
+            </li>
+          </ul>
+          <div className="flex items-center gap-5">
+            <p className="px-3 py-0 uppercase font-[lausanne-regular] text-3xl border-2 rounded-full">
+              FB
+            </p>
+            <p className="px-3 py-0 uppercase font-[lausanne-regular] text-3xl border-2 rounded-full">
+              IG
+            </p>
+            <p className="px-3 py-0 uppercase font-[lausanne-regular] text-3xl border-2 rounded-full">
+              IN
+            </p>
+            <p className="px-3 py-0 uppercase font-[lausanne-regular] text-3xl border-2 rounded-full">
+              BE
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );
