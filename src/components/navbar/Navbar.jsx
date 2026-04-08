@@ -1,8 +1,10 @@
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 import { Link } from "react-router-dom";
+import { NavbarContext } from "../../context/NavContext";
 
 const Navbar = () => {
   const navGreenRef = useRef(null);
+  const { setNavOpen } = useContext(NavbarContext);
 
   return (
     <>
@@ -29,6 +31,9 @@ const Navbar = () => {
           }}
           onMouseLeave={() => {
             navGreenRef.current.style.height = "0%";
+          }}
+          onClick={() => {
+            setNavOpen(true);
           }}
           className="bg-black w-50 h-full cursor-pointer"
         >
