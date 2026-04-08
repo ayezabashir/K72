@@ -36,7 +36,7 @@ const LoadingAnimation = (props) => {
       scale: 1.2,
     });
   }, [currPath]);
-  console.log(props);
+  
   return (
     <div>
       <div ref={stairRef} className="h-screen w-full fixed z-20 top-0">
