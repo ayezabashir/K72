@@ -4,7 +4,7 @@ import { navLinks } from "./data";
 
 const FullScreenNavBar = ({ toggleFullScreenNav }) => {
   return (
-    <div className="fullscreenNav fixed top-0 left-0 bg-black text-white h-screen w-screen z-99 overflow-y-auto">
+    <div className="fullscreenNav fixed top-0 left-0 bg-black text-white h-screen w-screen z-99 overflow-x-hidden">
       <div className="p-4 flex justify-between items-center border-b border-gray-400">
         <Link to="/">
           <svg
@@ -24,12 +24,12 @@ const FullScreenNavBar = ({ toggleFullScreenNav }) => {
         <div>
           <button
             type="button"
-            className="close cursor-pointer absolute top-10 right-0 leading-0"
+            className="close group cursor-pointer absolute top-10 right-0 leading-0"
             aria-label="Close"
             onClick={toggleFullScreenNav}
           >
             <span
-              className="text-[200px] leading-0 font-thin"
+              className="text-[200px] leading-0 font-thin group-hover:text-[#d4fd50] transition-all"
               aria-hidden="true"
             >
               &times;

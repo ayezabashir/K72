@@ -1,13 +1,8 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { Link } from "react-router-dom";
-import FullScreenNavBar from "./FullScreenNavBar";
 
 const Navbar = () => {
   const navGreenRef = useRef(null);
-  const [fullScreenNav, setFullScreenNav] = useState(false);
-  const toggleFullScreenNav = () => {
-    setFullScreenNav(!fullScreenNav);
-  };
 
   return (
     <>
@@ -35,7 +30,6 @@ const Navbar = () => {
           onMouseLeave={() => {
             navGreenRef.current.style.height = "0%";
           }}
-          onClick={toggleFullScreenNav}
           className="bg-black w-50 h-full cursor-pointer"
         >
           <div
@@ -50,9 +44,6 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      {fullScreenNav && (
-        <FullScreenNavBar toggleFullScreenNav={toggleFullScreenNav} />
-      )}
     </>
   );
 };

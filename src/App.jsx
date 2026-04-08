@@ -8,13 +8,13 @@ import FullScreenNavBar from "./components/navbar/FullScreenNavBar";
 const App = () => {
   return (
     <>
-      {/* <Navbar /> */}
+      <Navbar />
       <FullScreenNavBar />
-      {/* <Routes>
+      <Routes>
         <Route path="/" element={<Home />} />
         <Route path="agency" element={<Agency />} />
         <Route path="work" element={<Projects />} />
-      </Routes> */}
+      </Routes>
     </>
   );
 };
