@@ -3,10 +3,16 @@ import NavItem from "./NavItem";
 import { navLinks } from "./data";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { useRef } from "react";
+import { useContext, useRef } from "react";
+import { NavbarContext } from "../../context/NavContext";
 
 const FullScreenNavBar = () => {
   const fullNavLinksRef = useRef(null);
+  const fullScreenRef = useRef(null);
+
+  const { navOpen, setNavOpen } = useContext(NavbarContext);
+  console.log(navOpen);
+
   useGSAP(() => {
     const tl = gsap.timeline();
     tl.from(".stair-anim", {
@@ -15,21 +21,33 @@ const FullScreenNavBar = () => {
         amount: -0.25,
       },
     });
-    // tl.to(".stair-anim", {
-    //   y: "100%",
-    //   stagger: {
-    //     amount: -0.25,
-    //   },
-    // });
-    //  tl.to(".stair-anim", {
-    //    y: "0%",
-    //  });
-    tl.from(fullNavLinksRef, {
+    tl.to(".stair-anim", {
+      y: "100%",
+      stagger: {
+        amount: -0.25,
+      },
+    });
+     tl.to(".stair-anim", {
+       y: "0%",
+     });
+    tl.from(fullNavLinksRef.current, {
       opacity: 0,
     });
-  });
+
+    tl.pause();
+    if (navOpen) {
+      fullScreenRef.current.style.display = "block";
+      tl.play();
+    } else {
+      fullScreenRef.current.style.display = "none";
+      tl.reverse();
+    }
+  }, [navOpen]);
   return (
-    <div className="fullscreenNav absolute hidden bg-black text-white h-screen w-screen z-99 overflow-x-hidden">
+    <div
+      ref={fullScreenRef}
+      className="fullscreenNav absolute bg-black text-white h-screen w-screen z-99 overflow-x-hidden"
+    >
       <div className="h-screen w-full fixed">
         <div className="h-full w-full flex">
           <div className="stair-anim bg-black w-1/5 h-full"></div>
@@ -61,6 +79,7 @@ const FullScreenNavBar = () => {
               type="button"
               className="close group cursor-pointer absolute top-10 right-0 leading-0"
               aria-label="Close"
+              onClick={() => setNavOpen(true)}
             >
               <span
                 className="text-[200px] leading-0 font-thin group-hover:text-[#d4fd50] transition-all"
