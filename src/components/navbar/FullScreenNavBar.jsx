@@ -15,18 +15,27 @@ const FullScreenNavBar = () => {
         amount: -0.25,
       },
     });
+    // tl.to(".stair-anim", {
+    //   y: "100%",
+    //   stagger: {
+    //     amount: -0.25,
+    //   },
+    // });
+    //  tl.to(".stair-anim", {
+    //    y: "0%",
+    //  });
     tl.from(fullNavLinksRef, {
       opacity: 0,
     });
   });
   return (
-    <div className="fullscreenNav fixed top-0 left-0 bg-black text-white h-screen w-screen z-99 overflow-x-hidden">
+    <div className="fullscreenNav absolute hidden bg-black text-white h-screen w-screen z-99 overflow-x-hidden">
       <div className="h-screen w-full fixed">
         <div className="h-full w-full flex">
           <div className="stair-anim bg-black w-1/5 h-full"></div>
-          <div className="stair-anim bg-white w-1/5 h-full"></div>
           <div className="stair-anim bg-black w-1/5 h-full"></div>
-          <div className="stair-anim bg-white w-1/5 h-full"></div>
+          <div className="stair-anim bg-black w-1/5 h-full"></div>
+          <div className="stair-anim bg-black w-1/5 h-full"></div>
           <div className="stair-anim bg-black w-1/5 h-full"></div>
         </div>
       </div>
