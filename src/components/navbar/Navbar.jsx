@@ -3,14 +3,36 @@ import { Link, useLocation } from "react-router-dom";
 import { NavbarContext } from "../../context/NavContext";
 import { navItems } from "./data";
 import NavBlock from "./NavBlock";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 const Navbar = () => {
-  const agencyWorkRef = useRef(null);
+  const stairRef = useRef(null);
   const { setNavOpen } = useContext(NavbarContext);
 
   const locate = useLocation();
   const isDarkText = locate.pathname !== "/";
   const logoColor = isDarkText ? "#000000" : "#ffffff";
+
+  if (isDarkText) {
+    window.addEventListener("scroll", (dets) => {
+      console.log(dets);
+    });
+  }
+
+  useGSAP(
+    () => {
+      gsap.from(".nav-block-child", {
+        delay: 2,
+        y: -100,
+        opacity: 0,
+        duration: 0.5,
+        stagger: 0.1,
+        ease: "power4.out",
+      });
+    },
+    { scope: stairRef, dependencies: [isDarkText] },
+  );
 
   return (
     <>
@@ -33,29 +55,32 @@ const Navbar = () => {
           </Link>
         </div>
         {isDarkText ? (
-          <div ref={agencyWorkRef} className="h-28 w-full flex justify-end">
+          <div ref={stairRef} className="h-28 w-full flex justify-end">
             {navItems.map((item, index) => (
-              <NavBlock
-                key={index}
-                to={item.to}
-                linkLabel={item.linkLabel}
-                menuLabel={item.menuLabel}
-                height={item.height}
-                width={item.width}
-                onClick={
-                  item.menuLabel === "Menu" ? () => setNavOpen(true) : null
-                }
-                menuLabelText={item.menuLabelText}
-              />
+              <div key={index} className="nav-block-child">
+                <NavBlock
+                  to={item.to}
+                  linkLabel={item.linkLabel}
+                  menuLabel={item.menuLabel}
+                  height={item.height}
+                  width={item.width}
+                  onClick={
+                    item.menuLabel === "Menu" ? () => setNavOpen(true) : null
+                  }
+                  menuLabelText={item.menuLabelText}
+                />
+              </div>
             ))}
           </div>
         ) : (
-          <NavBlock
-            menuLabel="Menu"
-            height="h-14"
-            width="w-50"
-            onClick={() => setNavOpen(true)}
-          />
+          <div className="nav-block-child">
+            <NavBlock
+              menuLabel="Menu"
+              height="h-14"
+              width="w-50"
+              onClick={() => setNavOpen(true)}
+            />
+          </div>
         )}
       </div>
     </>
