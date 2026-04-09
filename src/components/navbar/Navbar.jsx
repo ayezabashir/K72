@@ -14,12 +14,6 @@ const Navbar = () => {
   const isDarkText = locate.pathname !== "/";
   const logoColor = isDarkText ? "#000000" : "#ffffff";
 
-  if (isDarkText) {
-    window.addEventListener("scroll", (dets) => {
-      console.log(dets);
-    });
-  }
-
   useGSAP(
     () => {
       gsap.from(".nav-block-child", {

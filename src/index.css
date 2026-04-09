@@ -11,10 +11,10 @@
 }
 
 body {
-  @apply overflow-x-hidden 
+  @apply overflow-x-hidden
 }
 
-*::selection{
+*::selection {
   background: #d3fd50;
   color: black;
 }
@@ -30,6 +30,7 @@ h1 {
   animation-timing-function: linear;
 }
 
+
 @keyframes marqueeAnimation {
   from {
     transform: translateX(0);
@@ -37,5 +38,35 @@ h1 {
 
   to {
     transform: translateX(-100%);
+  }
+}
+
+.nav-move {
+  display: flex;
+  animation: marqueeAnimation 8s linear infinite;
+}
+
+.nav-move-right {
+  display: flex;
+  animation: marqueeAnimationTwo 8s linear infinite;
+}
+
+@keyframes marqueeAnimation {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marqueeAnimationTwo {
+  0% {
+    transform: translateX(-50%);
+  }
+
+  100% {
+    transform: translateX(0);
   }
 }
