@@ -1,9 +1,11 @@
 import { useContext, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { NavbarContext } from "../../context/NavContext";
+import { navItems } from "./data";
+import NavBlock from "./NavBlock";
 
 const Navbar = () => {
-  const navGreenRef = useRef(null);
+  const agencyWorkRef = useRef(null);
   const { setNavOpen } = useContext(NavbarContext);
 
   const locate = useLocation();
@@ -12,8 +14,8 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="flex fixed top-0 z-1 w-full items-center justify-between h-14">
-        <div className="pl-4 pt-4">
+      <div className="flex fixed top-0 z-1 w-full justify-between ">
+        <div className="pl-4 pt-4 h-14">
           <Link to="/">
             <svg
               fill="#fff"
@@ -30,29 +32,31 @@ const Navbar = () => {
             </svg>
           </Link>
         </div>
-        <div
-          onMouseEnter={() => {
-            navGreenRef.current.style.height = "100%";
-          }}
-          onMouseLeave={() => {
-            navGreenRef.current.style.height = "0%";
-          }}
-          onClick={() => {
-            setNavOpen(true);
-          }}
-          className="bg-black w-50 h-full cursor-pointer"
-        >
-          <div
-            ref={navGreenRef}
-            className="bg-[#d3fd50] transition-all absolute top-0 h-0 w-full"
-          ></div>
-          <div className="relative h-full">
-            <div className="h-full flex flex-col justify-center items-end pr-4 gap-2">
-              <div className="h-0.5 w-15 bg-white"></div>
-              <div className="h-0.5 w-8 bg-white"></div>
-            </div>
+        {isDarkText ? (
+          <div ref={agencyWorkRef} className="h-28 w-full flex justify-end">
+            {navItems.map((item, index) => (
+              <NavBlock
+                key={index}
+                to={item.to}
+                linkLabel={item.linkLabel}
+                menuLabel={item.menuLabel}
+                height={item.height}
+                width={item.width}
+                onClick={
+                  item.menuLabel === "Menu" ? () => setNavOpen(true) : null
+                }
+                menuLabelText={item.menuLabelText}
+              />
+            ))}
           </div>
-        </div>
+        ) : (
+          <NavBlock
+            menuLabel="Menu"
+            height="h-14"
+            width="w-50"
+            onClick={() => setNavOpen(true)}
+          />
+        )}
       </div>
     </>
   );

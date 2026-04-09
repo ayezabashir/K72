@@ -70,8 +70,8 @@ const HeroContent = () => {
             />
           ))}
         </div>
-        <div className="pt-50 pb-20 z-10">
-          <h2 className="relative text-[20vw] font-bold text-center uppercase leading-[18vw]">
+        <div className="pt-75 pb-20 z-10">
+          <h2 className="relative text-[20vw] font-[lausanne-regular] text-center uppercase leading-[18vw]">
             SEVEN7Y <br /> TWO
           </h2>
           <div className="pl-[40.2%] mt-20">
