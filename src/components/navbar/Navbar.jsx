@@ -36,7 +36,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="flex fixed top-0 z-1 w-full justify-between ">
+      <div className="flex fixed top-0 z-1 w-full justify-between">
         <div className="pl-4 pt-4 h-14">
           <Link to="/">
             <svg

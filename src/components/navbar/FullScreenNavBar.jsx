@@ -61,7 +61,11 @@ const FullScreenNavBar = () => {
             duration: 0.4,
           },
           "-=0.3",
-        );
+        )
+        .from(".close", {
+          opacity: 0,
+          y: 30,
+        });
     },
     { scope: containerRef },
   );
@@ -77,7 +81,7 @@ const FullScreenNavBar = () => {
   return (
     <div
       ref={containerRef}
-      className="fullscreenNav hidden fixed top-0 left-0 w-full min-h-screen bg-transparent z-99 overflow-x-hidden"
+      className="fullscreenNav hidden fixed top-0 left-0 w-full min-h-screen bg-transparent z-99 overflow-hidden"
     >
       <div className="absolute top-0 left-0 w-full h-full flex z-0 pointer-events-none">
         <div className="stairing bg-black w-1/5 h-0"></div>
