@@ -131,35 +131,35 @@ const FullScreenNavBar = () => {
         <div className="p-4 flex justify-between items-center border-b border-gray-600 text-white">
           <div className="flex items-center gap-2">
             <img className="w-9" src="images/globe_icon.png" alt="globe icon" />
-            <p className="font-[lausanne-regular] text-sm">
+            <p className="font-[lausanne-regular] hover:text-[#d3fd50] cursor-pointer text-sm">
               MONTREAL_<span>{time}</span>
             </p>
           </div>
           <ul className="flex flex-1 items-center justify-center gap-5">
-            <li className="font-[lausanne-regular] text-xs uppercase">
+            <li className="font-[lausanne-regular] hover:text-[#d3fd50] cursor-pointer text-xs uppercase">
               privacy policy
             </li>
-            <li className="font-[lausanne-regular] text-xs uppercase">
+            <li className="font-[lausanne-regular] hover:text-[#d3fd50] cursor-pointer text-xs uppercase">
               privacy notice
             </li>
-            <li className="font-[lausanne-regular] text-xs uppercase">
+            <li className="font-[lausanne-regular] hover:text-[#d3fd50] cursor-pointer text-xs uppercase">
               ethics report
             </li>
-            <li className="font-[lausanne-regular] text-xs uppercase">
+            <li className="font-[lausanne-regular] hover:text-[#d3fd50] cursor-pointer text-xs uppercase">
               consent choice
             </li>
           </ul>
           <div className="flex items-center gap-5">
-            <p className="px-3 py-0 uppercase font-[lausanne-regular] text-3xl border-2 rounded-full">
+            <p className="px-3 py-0 uppercase font-[lausanne-regular] hover:text-[#d3fd50] cursor-pointer text-3xl border-2 rounded-full">
               FB
             </p>
-            <p className="px-3 py-0 uppercase font-[lausanne-regular] text-3xl border-2 rounded-full">
+            <p className="px-3 py-0 uppercase font-[lausanne-regular] hover:text-[#d3fd50] cursor-pointer text-3xl border-2 rounded-full">
               IG
             </p>
-            <p className="px-3 py-0 uppercase font-[lausanne-regular] text-3xl border-2 rounded-full">
+            <p className="px-3 py-0 uppercase font-[lausanne-regular] hover:text-[#d3fd50] cursor-pointer text-3xl border-2 rounded-full">
               IN
             </p>
-            <p className="px-3 py-0 uppercase font-[lausanne-regular] text-3xl border-2 rounded-full">
+            <p className="px-3 py-0 uppercase font-[lausanne-regular] hover:text-[#d3fd50] cursor-pointer text-3xl border-2 rounded-full">
               BE
             </p>
           </div>
