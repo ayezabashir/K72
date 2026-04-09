@@ -9,10 +9,9 @@ import { NavbarContext } from "../../context/NavContext";
 
 const FullScreenNavBar = () => {
   const containerRef = useRef(null);
+  const tl = useRef(null);
   const { navOpen, setNavOpen } = useContext(NavbarContext);
   const [time, setTime] = useState("");
-  console.log(time);
-
   useEffect(() => {
     let timerId;
 
@@ -33,23 +32,26 @@ const FullScreenNavBar = () => {
 
     return () => {
       clearInterval(timerId);
-      console.log("Clock stopped.");
     };
   }, [navOpen]);
 
   useGSAP(
     () => {
-      if (navOpen) {
-        gsap.set(containerRef.current, { display: "block" });
-
-        const tl = gsap.timeline();
-        tl.to(".stairing", {
+      tl.current = gsap.timeline({
+        paused: true,
+        onReverseComplete: () => {
+          gsap.set(containerRef.current, { display: "none" });
+        },
+      });
+      tl.current
+        .set(containerRef.current, { display: "block" })
+        .to(".stairing", {
           height: "100%",
           stagger: 0.1,
           ease: "power4.inOut",
           duration: 0.6,
-        });
-        tl.from(
+        })
+        .from(
           ".link-item",
           {
             opacity: 0,
@@ -60,22 +62,17 @@ const FullScreenNavBar = () => {
           },
           "-=0.3",
         );
-      } else {
-        const tl = gsap.timeline();
-
-        tl.to(".stairing", {
-          height: "0%",
-          stagger: 0.05,
-          ease: "power4.inOut",
-          duration: 0.5,
-          onComplete: () => {
-            gsap.set(containerRef.current, { display: "none" });
-          },
-        });
-      }
     },
-    { dependencies: [navOpen], scope: containerRef },
+    { scope: containerRef },
   );
+
+  useEffect(() => {
+    if (navOpen) {
+      tl.current.play();
+    } else {
+      tl.current.reverse();
+    }
+  }, [navOpen]);
 
   return (
     <div
