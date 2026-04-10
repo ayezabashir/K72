@@ -5,6 +5,7 @@ import MarqueeContent from "../components/agency/MarqueeContent";
 import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
+import AgencyPeople from "../components/agency/AgencyPeople";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -51,9 +52,12 @@ const Agency = () => {
         </div>
       </div>
       <div className="h-[50vh] bg-black"></div>
+
+      <div>
+        <AgencyPeople />
+      </div>
     </div>
   );
 };
-
 
 export default Agency;
