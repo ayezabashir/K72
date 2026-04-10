@@ -34,10 +34,9 @@ const Navbar = () => {
         <div className="pl-4 pt-4 h-14">
           <Link to="/">
             <svg
+              className=" w-13 md:w-26 md:h-11"
               fill="#fff"
               xmlns="http://www.w3.org/2000/svg"
-              width="103"
-              height="44"
               viewBox="0 0 103 44"
             >
               <path
@@ -58,6 +57,7 @@ const Navbar = () => {
                   menuLabel={item.menuLabel}
                   height={item.height}
                   width={item.width}
+                  mb_width={item.mb_width}
                   onClick={
                     item.menuLabel === "Menu" ? () => setNavOpen(true) : null
                   }

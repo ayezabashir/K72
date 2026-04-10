@@ -42,7 +42,7 @@ const MarqueeContent = ({ bg_text1, bg_text2, bg_text3, center_img }) => {
         </div>
       </div>
 
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-2 rounded-3xl h-screen w-100 overflow-hidden pointer-events-none">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-2 rounded-3xl h-[60vh] w-auto md:h-screen md:w-100 overflow-hidden pointer-events-none">
         <img
           className="w-full h-full object-cover"
           src={center_img}

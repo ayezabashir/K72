@@ -35,19 +35,22 @@ export const navItems = [
     to: "/work",
     linkLabel: "work",
     height: "h-14",
-    width: "w-70",
+    width: "w-20",
+    mb_width: "md:w-70",
   },
   {
     to: "/agency",
     linkLabel: "agency",
     height: "h-20",
-    width: "w-70",
+    width: "w-20",
+    mb_width: "md:w-70",
   },
   {
     to: "/",
     menuLabel: "Menu",
     height: "h-26",
-    width: "w-50",
-    menuLabelText: "Menu"
+    width: "w-20",
+    menuLabelText: "Menu",
+    mb_width: "md:w-50",
   },
 ];

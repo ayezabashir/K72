@@ -7,6 +7,7 @@ const NavBlock = ({
   menuLabelText,
   height,
   width,
+  mb_width,
   onClick,
 }) => {
   const navGreenRef = useRef(null);
@@ -26,7 +27,7 @@ const NavBlock = ({
         navGreenRef.current.style.height = "0%";
       }}
       onClick={handleClick}
-      className={`bg-black group ${width} ${height} cursor-pointer relative overflow-hidden flex flex-col justify-end`}
+      className={`bg-black group ${mb_width} ${width} ${height} cursor-pointer relative overflow-hidden flex flex-col justify-end`}
     >
       <div
         ref={navGreenRef}
@@ -36,7 +37,7 @@ const NavBlock = ({
       <div className="relative z-10 p-2 h-full pointer-events-none">
         {linkLabel && (
           <Link
-            className="text-white flex h-full hover:text-black justify-start items-end uppercase font-bold text-lg pointer-events-auto"
+            className="text-white flex h-full hover:text-black justify-start items-end uppercase font-bold text-sm md:text-lg pointer-events-auto"
             to={to}
             onClick={(e) => e.stopPropagation()}
           >
@@ -52,7 +53,7 @@ const NavBlock = ({
               <div className="h-0.5 w-10 bg-white group-hover:bg-black"></div>
               <div className="h-0.5 w-6 bg-white group-hover:bg-black"></div>
             </div>
-            <p className="text-white group-hover:text-black uppercase font-bold text-lg mt-1">
+            <p className="text-white group-hover:text-black uppercase font-bold text-sm md:text-lg mt-1">
               {menuLabelText}
             </p>
           </div>

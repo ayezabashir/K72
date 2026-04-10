@@ -54,7 +54,7 @@ const HeroContent = () => {
       <div ref={containerRef} className="section1 relative">
         <div
           ref={imageDivRef}
-          className="image-container absolute h-70 w-50 rounded-3xl overflow-hidden top-56 left-[30vw] pointer-events-none bg-black"
+          className="image-container absolute h-50 w-30 md:h-70 md:w-50 rounded-3xl overflow-hidden top-56 left-[30vw] pointer-events-none bg-black"
         >
           {imageArray.map((src, i) => (
             <img
@@ -70,12 +70,12 @@ const HeroContent = () => {
             />
           ))}
         </div>
-        <div className="pt-75 pb-20 z-10">
+        <div className="pt-40 md:pt-75 pb-20 z-10">
           <h2 className="relative text-[20vw] font-[lausanne-regular] text-center uppercase leading-[18vw]">
             SEVEN7Y <br /> TWO
           </h2>
-          <div className="pl-[40.2%] mt-20">
-            <p className=" relative text-6xl indent-50 font-[lausanne-light]">
+          <div className="p-4 md:pl-[40.2%] mt-20">
+            <p className=" relative text-lg md:text-6xl indent-50 font-[lausanne-light]">
               We’re inquisitive and open-minded, and we make sure creativity
               crowds out ego from every corner. A brand is a living thing, with
               values, a personality and a story. If we ignore that, we can
