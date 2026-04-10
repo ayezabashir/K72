@@ -29,15 +29,14 @@ const NavItem = ({ title, hoverText, images }) => {
       ref={containerRef}
       onMouseEnter={() => animation.current.play()}
       onMouseLeave={() => animation.current.reverse()}
-      className="link-item relative border-b border-gray-400 cursor-pointer overflow-hidden group"
+      className="link-item flex-1 flex items-center justify-center relative border-b border-gray-400 cursor-pointer overflow-hidden group w-full"
     >
-      <h1 className="text-[7.5vw] uppercase text-center leading-tight">
+      <h1 className="text-[7.5vw] text-white uppercase text-center leading-none">
         {title}
       </h1>
-
       <div
         ref={moveLinkRef}
-        className="absolute flex top-0 left-0 bg-[#d3fd50] text-black w-full overflow-hidden items-center z-10"
+        className="absolute flex top-0 left-0 bg-[#d3fd50] text-black w-full h-full overflow-hidden items-center z-10"
       >
         {[1, 2].map((m) => (
           <div
