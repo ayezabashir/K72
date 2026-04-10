@@ -1,8 +1,8 @@
 const MarqueeContent = ({ bg_text1, bg_text2, bg_text3, center_img }) => {
   return (
     <div className="relative w-full h-screen overflow-hidden">
-      <div className="py-50 flex flex-col justify-center h-full">
-        <div className="flex whitespace-nowrap">
+      <div className="flex flex-col justify-center absolute top-[50vh] translate-y-[-50%] bg-black ">
+        <div className="flex whitespace-nowrap ">
           <div className="nav-move flex shrink-0">
             {[1, 2].map((i) => (
               <div key={i} className="flex gap-[30vw] pr-[30vw]">
@@ -42,7 +42,7 @@ const MarqueeContent = ({ bg_text1, bg_text2, bg_text3, center_img }) => {
         </div>
       </div>
 
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-2 rounded-xl h-120 w-90 overflow-hidden pointer-events-none">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-2 rounded-3xl h-screen w-100 overflow-hidden pointer-events-none">
         <img
           className="w-full h-full object-cover"
           src={center_img}

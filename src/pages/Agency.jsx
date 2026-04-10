@@ -10,16 +10,16 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Agency = () => {
   const mainWrapperRef = useRef(null);
-  const marqueeRef = useRef(null);
+  const triggerRef = useRef(null);
 
   useGSAP(
     () => {
       gsap.to(mainWrapperRef.current, {
         backgroundColor: "#000000",
         scrollTrigger: {
-          trigger: marqueeRef.current,
+          trigger: triggerRef.current,
           start: "top 80%",
-          end: "top 20%",
+          end: "top 75%",
           scrub: 1,
         },
       });
@@ -28,31 +28,32 @@ const Agency = () => {
   );
 
   return (
-    <div
-      ref={mainWrapperRef}
-      className="bg-white transition-colors duration-500"
-    >
+    <div ref={mainWrapperRef} className="bg-white transition-colors">
       <HeroContent />
       <AgencyGrid />
-      <div
-        ref={marqueeRef}
-        className=" min-h-screen py-50 w-full overflow-x-hidden"
-      >
-        <MarqueeContent
-          bg_text1="MARIE-PIER"
-          bg_text2="DAIGLE"
-          bg_text3="Maquettiste"
-          center_img="https://k72.ca/images/teamMembers/blank.jpg?w=640&h=960&s=252a0cd13e881c6a268fe3c75f8abbca"
-        />
-        <MarqueeContent
-          bg_text1="stephanie"
-          bg_text2="BRUNELLE"
-          bg_text3="Account Manager"
-          center_img="https://k72.ca/images/teamMembers/MEGGIE_640X980_2.jpg?w=640&h=960&s=7d78cdb1fad347408e05a311cc4018ef"
-        />
+      <div ref={triggerRef} className="relative h-[200vh] w-full">
+        <div className="sticky top-0 h-screen w-full z-10 overflow-hidden">
+          <MarqueeContent
+            bg_text1="MARIE-PIER"
+            bg_text2="DAIGLE"
+            bg_text3="Maquettiste"
+            center_img="https://k72.ca/images/teamMembers/SebR_640X960.jpg?w=640&h=960&s=81dfdbd4b658503ba32862901a1ea3ca"
+          />
+        </div>
+
+        <div className="absolute bottom-0 left-0 h-screen w-full z-20 ">
+          <MarqueeContent
+            bg_text1="stephanie"
+            bg_text2="BRUNELLE"
+            bg_text3="Account Manager"
+            center_img="https://k72.ca/images/teamMembers/MEGGIE_640X980_2.jpg?w=640&h=960&s=7d78cdb1fad347408e05a311cc4018ef"
+          />
+        </div>
       </div>
+      <div className="h-[50vh] bg-black"></div>
     </div>
   );
 };
+
 
 export default Agency;
