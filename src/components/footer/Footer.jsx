@@ -4,7 +4,6 @@ const Footer = () => {
   const [time, setTime] = useState("");
 
   useEffect(() => {
-    let timerId;
     const getMontrealTime = () => {
       return new Date().toLocaleTimeString("en-CA", {
         timeZone: "America/Montreal",
@@ -12,14 +11,14 @@ const Footer = () => {
         hour12: true,
       });
     };
-
     setTime(getMontrealTime());
-    timerId = setInterval(() => {
+
+    const timerId = setInterval(() => {
       setTime(getMontrealTime());
     }, 1000);
 
     return () => clearInterval(timerId);
-  });
+  }, []); 
   return (
     <div>
       <div>
