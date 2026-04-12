@@ -12,6 +12,7 @@ const AgencyPeople = () => {
   useGSAP(() => {
     if (activeIndex !== null) {
       const activeImg = imgsRef.current[activeIndex];
+
       imgsRef.current.forEach((img, i) => {
         if (i !== activeIndex && img) {
           gsap.set(img, { opacity: 0, zIndex: 1 });
@@ -22,12 +23,12 @@ const AgencyPeople = () => {
         gsap.fromTo(
           activeImg,
           {
-            opacity: 1, 
+            opacity: 1,
             zIndex: 10,
-            clipPath: "inset(0 100% 0 0)", 
+            clipPath: "inset(0 100% 0 0)",
           },
           {
-            clipPath: "inset(0 0% 0 0)", 
+            clipPath: "inset(0 0% 0 0)",
             opacity: 1,
             duration: 0.5,
             ease: "power2.inOut",
@@ -35,10 +36,24 @@ const AgencyPeople = () => {
         );
       }
     }
+    else {
+      imgsRef.current.forEach((img) => {
+        if (img) {
+          gsap.to(img, {
+            opacity: 0,
+            duration: 0.3,
+            ease: "power2.inOut",
+          });
+        }
+      });
+    }
   }, [activeIndex]);
 
   return (
-    <div className="agency_people relative w-full bg-black">
+    <div
+      className="agency_people relative w-full bg-black"
+      onMouseLeave={() => setActiveIndex(null)}
+    >
       <div className="sticky top-0 h-screen w-full z-20 flex items-center justify-center pointer-events-none overflow-hidden">
         <div className="people_img relative h-125 w-88 rounded-3xl overflow-hidden bg-transparent shadow-2xl">
           {imageArray.map((src, i) => (

@@ -51,11 +51,8 @@ const Agency = () => {
           />
         </div>
       </div>
-      <div className="h-[50vh] bg-black"></div>
-
-      <div>
-        <AgencyPeople />
-      </div>
+      <div className="md:h-[50vh] bg-black"></div>
+      <AgencyPeople />
     </div>
   );
 };

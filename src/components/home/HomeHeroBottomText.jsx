@@ -13,13 +13,13 @@ const HomeHeroBottomText = () => {
         </p>
       </div>
       <div className="flex items-center justify-center gap-2 mt-10">
-        <div className=" border-3 h-22 flex items-center px-10 pt-5 hover:border-[#d3fd50] hover:text-[#d3fd50] border-white rounded-full uppercase ">
-          <Link className="text-[7vw] leading-0" to="/work">
+        <div className=" border-3 h-18 lg:h-22 flex items-center px-10 pt-0 md:pt-5 hover:border-[#d3fd50] hover:text-[#d3fd50] border-white rounded-full uppercase ">
+          <Link className="text-[5vw] md:text-[7vw] leading-0" to="/work">
             Work
           </Link>
         </div>
-        <div className="border-3 h-22 flex items-center px-10 pt-5 hover:border-[#d3fd50] hover:text-[#d3fd50] border-white rounded-full uppercase ">
-          <Link className="text-[7vw] leading-0" to="/agency">
+        <div className="border-3 h-18 lg:h-22 flex items-center px-10 pt-0 md:pt-5 hover:border-[#d3fd50] hover:text-[#d3fd50] border-white rounded-full uppercase ">
+          <Link className="text-[5vw] md:text-[7vw] leading-0" to="/agency">
             Agency
           </Link>
         </div>

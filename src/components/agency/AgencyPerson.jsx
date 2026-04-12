@@ -18,7 +18,7 @@ const AgencyPerson = ({ name, role, onMouseEnter }) => {
         ref={navGreenRef}
         className="bg-[#d3fd50] transition-all duration-300 absolute top-0 left-0 w-full h-0 z-0"
       ></div>
-      <div className="relative z-10 flex justify-between items-center w-full">
+      <div className="relative z-10 flex flex-col-reverse md:flex-row justify-between items-center w-full">
         <span className="text-base text-white font-[lausanne-regular] group-hover:text-black ">
           {role}
         </span>
