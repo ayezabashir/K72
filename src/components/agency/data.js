@@ -138,3 +138,18 @@ export const agencyPeople = [
       "https://k72.ca/images/teamMembers/ChantalG_640X960.jpg?w=640&h=960&s=0d5256f9a322fa37df33ebc989039be1",
   },
 ];
+
+export const projects = [
+  {
+    title: "Opto-Réseau",
+    subtitle: "We see you like no other",
+  },
+  {
+    title: "Lamajeure",
+    subtitle: "Lamajeure",
+  },
+  {
+    title: "Lassonde",
+    subtitle: "Fruité",
+  },
+];
