@@ -1,10 +1,6 @@
 import { useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { projects } from "./data";
 import Project from "./Project";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const AgencyProjects = () => {
   const container = useRef(null);

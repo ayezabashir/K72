@@ -18,7 +18,7 @@ const Footer = () => {
     }, 1000);
 
     return () => clearInterval(timerId);
-  }, []); 
+  }, []);
   return (
     <footer className="bg-black text-white flex flex-col justify-between min-h-[62vh] p-2.5">
       <div className="flex justify-between items-center">
@@ -63,11 +63,9 @@ const Footer = () => {
             </li>
           ))}
         </ul>
-        <div>
-          <p className="uppercase text-white font-[lausanne-regular]">
-            Back to top
-          </p>
-        </div>
+        <button type="button" onClick={()=>window.scrollTo({top: 0, behavior: "smooth"})} className="uppercase text-white hover:text-[#d3fd50] cursor-pointer font-[lausanne-regular]">
+          Back to top
+        </button>
       </div>
     </footer>
   );
