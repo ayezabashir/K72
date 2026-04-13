@@ -12,7 +12,7 @@ const AgencyPerson = ({ name, role, onMouseEnter }) => {
       onMouseLeave={() => {
         navGreenRef.current.style.height = "0%";
       }}
-      className="flex flex-col group relative overflow-hidden p-4 cursor-pointer border-t border-white w-full"
+      className="flex flex-col group relative overflow-hidden p-4 cursor-pointer border-t border-white last-of-type:border-b w-full"
     >
       <div
         ref={navGreenRef}
