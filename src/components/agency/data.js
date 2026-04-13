@@ -143,13 +143,16 @@ export const projects = [
   {
     title: "Opto-Réseau",
     subtitle: "We see you like no other",
+    img: "/images/projects_img_1.jpg",
   },
   {
     title: "Lamajeure",
     subtitle: "Lamajeure",
+    img: "/images/projects_img_2.jpg",
   },
   {
     title: "Lassonde",
     subtitle: "Fruité",
+    img: "/images/projects_img_3.jpg",
   },
 ];
