@@ -10,7 +10,7 @@ const AgencyProjects = () => {
   const container = useRef(null);
 
   return (
-    <div ref={container} className="relative bg-black w-full py-50">
+    <div ref={container} className="relative bg-black w-full pt-50">
       <div className="sticky top-10 z-100 w-full pointer-events-none">
         <h4 className="uppercase text-2xl font-[lausanne-regular] cursor-pointer text-center text-white hover:text-[#D3FD50] pointer-events-auto">
           view all projects
@@ -37,7 +37,6 @@ const AgencyProjects = () => {
           </div>
         ))}
       </div>
-      <div className="h-[20vh]" />
     </div>
   );
 };
