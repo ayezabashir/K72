@@ -1,44 +1,43 @@
+import { useRef } from "react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { projects } from "./data";
 import Project from "./Project";
-import { ScrollTrigger } from "gsap/all";
-import { useGSAP } from "@gsap/react";
-import { useRef } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const AgencyProjects = () => {
-  const containerRef = useRef(null);
-
-  useGSAP(() => {
-    const projectsEl = gsap.utils.toArray(".project-card");
-    projectsEl.forEach((project) => {
-      ScrollTrigger.create({
-        trigger: project,
-        start: "top top",
-        pin: true,
-        pinSpacing: false,
-      });
-    });
-  });
+  const container = useRef(null);
 
   return (
-    <div ref={containerRef} className="py-40 relative">
-      <div className="absolute top-47.5 z-10 w-full">
-        <h4 className="uppercase text-2xl font-[lausanne-regular] cursor-pointer text-center text-white hover:text-[#D3FD50] hover:uppercase">
+    <div ref={container} className="relative bg-black w-full py-50">
+      <div className="sticky top-10 z-100 w-full pointer-events-none">
+        <h4 className="uppercase text-2xl font-[lausanne-regular] cursor-pointer text-center text-white hover:text-[#D3FD50] pointer-events-auto">
           view all projects
         </h4>
       </div>
-      <div className="project-card w-full h-screen">
+
+      <div className="flex flex-col">
         {projects.map((project, index) => (
-          <Project
+          <div
             key={index}
-            bg_img={project.img}
-            title={project.title}
-            subtitle={project.subtitle}
-          />
+            className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden"
+            style={{
+              zIndex: index + 1,
+              paddingTop: `${index * 2}vh`,
+            }}
+          >
+            <div className="w-full h-full rounded-3xl overflow-hidden shadow-2xl">
+              <Project
+                bg_img={project.img}
+                title={project.title}
+                subtitle={project.subtitle}
+              />
+            </div>
+          </div>
         ))}
       </div>
+      <div className="h-[20vh]" />
     </div>
   );
 };
