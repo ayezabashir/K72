@@ -18,7 +18,7 @@ const Works = () => {
           cards,
           { height: "60px" }, 
           {
-            height: "600px",
+            height: "520px",
             ease: "power2.out", 
             scrollTrigger: {
               trigger: row,
@@ -35,11 +35,11 @@ const Works = () => {
   );
 
   return (
-    <div ref={container} className="w-full py-40">
+    <div ref={container} className="w-full">
       {projectRows.map((row) => (
         <div
           key={row.rowId}
-          className="project-row w-full min-h-[600px] mb-[30vh] flex gap-8 px-10"
+          className="project-row w-full min-h-130 mb-4 flex gap-4"
         >
           <WorkCard
             card_img1={row.leftProject.image}
