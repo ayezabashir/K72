@@ -7,7 +7,7 @@ import WorkCard from "./WorkCard";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Works = () => {
+const Works = ({ setHoveredProject }) => {
   const container = useRef();
   useGSAP(
     () => {
@@ -16,15 +16,15 @@ const Works = () => {
         const cards = row.querySelectorAll(".work-card-wrapper");
         gsap.fromTo(
           cards,
-          { height: "20px" }, 
+          { height: "20px" },
           {
             height: "520px",
-            ease: "power2.out", 
+            ease: "power2.out",
             scrollTrigger: {
               trigger: row,
               start: "top 90%",
-              end: "bottom 80%", 
-              scrub: 1, 
+              end: "bottom 80%",
+              scrub: 1,
               invalidateOnRefresh: true,
             },
           },
@@ -42,6 +42,8 @@ const Works = () => {
           className="project-row w-full min-h-130 mb-4 flex gap-4"
         >
           <WorkCard
+            onMouseEnter={(data) => setHoveredProject(data)}
+            onMouseLeave={() => setHoveredProject(null)}
             card_img1={row.leftProject.image}
             card_one_title={row.leftProject.title}
             card_one_subtitle={row.leftProject.subtitle}
