@@ -41,7 +41,7 @@ const FullScreenNavBar = () => {
         },
       });
       tl.current
-        .set(containerRef.current, { display: "grid" }) // Changed to grid
+        .set(containerRef.current, { display: "grid" })
         .to(".stairing", {
           height: "100%",
           stagger: 0.1,
@@ -59,6 +59,12 @@ const FullScreenNavBar = () => {
           },
           "-=0.3",
         )
+        .from(".footer_bottom",{
+          opacity:0,
+          stagger: 0.1,
+          y:30,
+          duration: 0.4,
+        })
         .from(".close", {
           opacity: 0,
           y: 30,
@@ -118,7 +124,7 @@ const FullScreenNavBar = () => {
         ))}
       </ul>
 
-      <div className="relative z-10 p-4 flex flex-col md:flex-row justify-between items-center border-t border-gray-600 text-white gap-4">
+      <div className="footer_bottom relative z-10 p-4 flex flex-col md:flex-row justify-between items-center border-t border-gray-600 text-white gap-4">
         <div className="flex items-center gap-2">
           <img
             className="w-6 md:w-9"

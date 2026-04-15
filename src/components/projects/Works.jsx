@@ -16,7 +16,7 @@ const Works = () => {
         const cards = row.querySelectorAll(".work-card-wrapper");
         gsap.fromTo(
           cards,
-          { height: "60px" }, 
+          { height: "20px" }, 
           {
             height: "520px",
             ease: "power2.out", 
