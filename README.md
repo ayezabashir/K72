@@ -1,5 +1,5 @@
-## K72 
-
+### K72 
+---
 <p align="center">
   <a href="https://k72-eight-lilac.vercel.app/"><strong>Explore the Live Demo »</strong></a>
 </p>
@@ -7,17 +7,13 @@
 ## ✨ The Project
 A high-fidelity landing page clone of **K72**, built to demonstrate the intersection of performance and digital storytelling. This project focuses on **fluid typography**, **custom cursors**, and **frame-perfect scroll animations**.
 
+
 ### 🛠️ Core Tech Stack
 * **ReactJS** - Component-based architecture.
 * **React-Router-DOM** - For navigation
 * **Tailwind CSS** - For rapid, utility-first styling.
 * **GSAP (GreenSock)** - Powering all complex timelines and scroll triggers.
 * **Locomotive Scroll** - For that signature high-end "smooth scroll" experience
-
----
-To keep that high-end developer feel while providing clear setup instructions, you should add a **"Getting Started"** or **"Installation"** section right before the **Key Features**.
-
-Here is how you can integrate those steps into your current README structure:
 
 ---
 
