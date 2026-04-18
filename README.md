@@ -1,6 +1,5 @@
 ## K72 
 
-
 <p align="center">
   <a href="https://k72-eight-lilac.vercel.app/"><strong>Explore the Live Demo »</strong></a>
 </p>
@@ -15,6 +14,32 @@ A high-fidelity landing page clone of **K72**, built to demonstrate the intersec
 * **GSAP (GreenSock)** - Powering all complex timelines and scroll triggers.
 * **Locomotive Scroll** - For that signature high-end "smooth scroll" experience
 
+---
+To keep that high-end developer feel while providing clear setup instructions, you should add a **"Getting Started"** or **"Installation"** section right before the **Key Features**.
+
+Here is how you can integrate those steps into your current README structure:
+
+---
+
+## 🚀 Getting Started
+
+To get this project running locally, follow these steps:
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/your-username/k72-clone.git
+```
+
+### 2. Install dependencies
+```bash
+cd k72-clone
+npm install
+```
+
+### 3. Start the development server
+```bash
+npm run dev
+```
 
 ---
 
