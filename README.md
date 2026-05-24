@@ -59,7 +59,7 @@ During this build, I focused on:
 
 ## 📬 Contact
 **Ayeza Bashir**
-* **Portfolio:** [ayeza-bashir-portfolio.vercel.app](https://ayeza-bashir-portfolio.vercel.app/)
+* **Portfolio:** [ayeza-bashir-portfolio.vercel.app](https://ayezabashirportfolio.vercel.app/)
 * **LinkedIn:** [in/ayezabashir](https://linkedin.com/in/ayezabashir/)
 * **Email:** ayezabashir46@gmail.com
 
